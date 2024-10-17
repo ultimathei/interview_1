@@ -39,7 +39,7 @@
  * - Bonus 3: New instructions arrived from Charlie (our UI/UX designer). She wants to display the active value as a red color. She has given the hex value as: #ff0000. Can you modify the code to display with the new colour, but with 0.75 opacity.
  */
 import { computed } from "vue";
-import { formatToThreeSignificatnFigures } from '../_helpers/numberFormatter';
+import { formatToThreeSignificantFigures } from '../_helpers/numberFormatter';
 
 interface ExcerciseOneProps {
   value: number;
@@ -52,7 +52,7 @@ interface ExcerciseOneProps {
 const props = withDefaults(defineProps<ExcerciseOneProps>(), {});
 
 const currencyPrefix = computed(() => 'usd')
-const formattedValue = computed(() => formatToThreeSignificatnFigures(props.value) || 'TODO')
+const formattedValue = computed(() => formatToThreeSignificantFigures(props.value) || 'TODO')
 </script>
 
 <style lang="scss" scoped>
