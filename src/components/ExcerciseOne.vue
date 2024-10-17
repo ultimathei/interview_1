@@ -15,10 +15,12 @@
 
 <script setup lang="ts">
 /**
+ * This is a reusable component we plan to use to display different number values on the platform.
+ * 
  * Excercise:
- * - 1234.56789 should be displayed, why is it not? Can you make the component display it?
- * - This number is too small to read, make sure the it is displayed in large format (don't modify css for this).
- * - The number should be displayed in a yellow/ocre color if active, and in white if not. Can you make this instance not active? (do not modify css or template for this)
+ * - 1234.56789 should be displayed, why is it not? Can you make the component display this value? (Think about reusability.)
+ * - This text seems too small to read, make sure the it is displayed in a larger font (don't modify css for this).
+ * - The number should be displayed in a yellow/ocre color if active, and in white if not. Can you make this instance NOT active? (do not modify css or template for this)
  * - The number currently displays with all of its digits and fragment digits. This can vary in lenght and needs a varying amount of space.
  *   Can you make it display only three significant figures?
  *   For example:
@@ -26,9 +28,12 @@
  *     123.456789 becomes 123
  *     1234 becomes 1.23K
  *     123456 becomes 1.24K
- *     12345678 becomes 12.35M
+ *     12345678 becomes 12.4M
+ *     123456789 becomes 124M
+ *     1234567891 becomes 1.24B
  *  where K is for thousands, M is for millions and B is for billions.
- * - Binus 1: Let's say this value displays a money value. Can you add the currency prefix/symbol in front of the value?
+ * 
+ * - Bonus 1: Let's say this value displays a money value. Can you add the currency prefix/symbol in front of the value?
  * - Bonus 2: if we are to display a value for money, we should always display whole numbers OR if there are fragments, with two decimal places.
  *   Can you modify your code to be able to display both?.
  * - Bonus 3: New instructions arrived from Charlie (our UI/UX designer). She wants to display the active value as a red color. She has given the hex value as: #ff0000. Can you modify the code to display with the new colour, but with 0.75 opacity.
@@ -62,6 +67,11 @@ const formattedValue = computed(() => formatToThreeSignificatnFigures(props.valu
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 2px 1px currentColor;
+  min-width: 4rem;
+  min-height: 4rem;
 
   &--large {
     font-size: 72px !important;
